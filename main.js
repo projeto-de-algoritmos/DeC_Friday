@@ -14,6 +14,74 @@ function geraArrayAleatorio() {
         const valorAleatorio = numerosAleatorios(min, max);
         arrayAleatorio.push(valorAleatorio);
     }
+    
     document.getElementById("result").textContent = "Array com valores aleatórios: " + arrayAleatorio.join(", ");
+    console.log(arrayAleatorio)
+    const median = medianOfMedians(arrayAleatorio);
+      
+    console.log("Array:", arrayAleatorio);
+    console.log("Mediana das medianas:", median);
+    
+    const minArray = select(arrayAleatorio, 0); 
+    const maxArray = select(arrayAleatorio, arrayAleatorio.length - 1); 
+    console.log("Elemento mínimo:", minArray);
+    console.log("Elemento máximo:", maxArray);
+
+    function medianOfMedians(arr) {
+        
+        const groups = [];
+        for (let i = 0; i < arr.length; i += 5) {
+            groups.push(arr.slice(i, i + 5));
+        }
+        
+        
+        const medians = groups.map(group => {
+            return group.sort((a, b) => a - b)[Math.floor(group.length / 2)];
+        });
+        
+        // Encontra a mediana das medianas
+        const medianOfMedians = select(medians, Math.floor(medians.length / 2));
+        
+        return medianOfMedians;
+    }
+        
+    function select(arr, k) {
+        if (arr.length === 1) {
+            return arr[0];
+        }
+
+        const groups = [];
+        for (let i = 0; i < arr.length; i += 5) {
+            groups.push(arr.slice(i, i + 5));
+        }
+
+        const medians = groups.map(group => {
+            return group.sort((a, b) => a - b)[Math.floor(group.length / 2)];
+        });
+
+        const pivot = select(medians, Math.floor(medians.length / 2));
+
+        const lesser = [];
+        const greater = [];
+        const equal = [];
+
+        arr.forEach(num => {
+            if (num < pivot) {
+            lesser.push(num);
+            } else if (num > pivot) {
+            greater.push(num);
+            } else {
+            equal.push(num);
+            }
+        });
+
+        if (k < lesser.length) {
+            return select(lesser, k);
+        } else if (k < lesser.length + equal.length) {
+            return equal[0];
+        } else {
+            return select(greater, k - lesser.length - equal.length);
+        }
+    }
 }
 
