@@ -15,7 +15,7 @@ function geraArrayAleatorio() {
         arrayAleatorio.push(valorAleatorio);
     }
     
-    document.getElementById("result").textContent = "Array com valores aleatórios: " + arrayAleatorio.join(", ");
+    // document.getElementById("result").textContent = "Array com valores aleatórios: " + arrayAleatorio.join(", ");
     console.log(arrayAleatorio)
     const median = medianOfMedians(arrayAleatorio);
       
@@ -26,6 +26,19 @@ function geraArrayAleatorio() {
     const maxArray = select(arrayAleatorio, arrayAleatorio.length - 1); 
     console.log("Elemento mínimo:", minArray);
     console.log("Elemento máximo:", maxArray);
+
+    document.getElementById("result").style.display = "block"
+    document.getElementById("result").innerHTML = `<h3>Relatório das distâncias encontradas:</h3>` 
+    for (let i = 0; i<25; i++) {
+        document.getElementById("result").innerHTML += `<p>Planeta ${i+1}: ${arrayAleatorio[i]} anos luz</p>`
+    }
+
+    document.getElementById("result").innerHTML += `
+        <p>Mediana das medianas calculada: ${median}</p>
+        <p>Distância do planeta mais próximo: ${minArray}</p>
+        <p>Distância do planeta mais distante: ${maxArray}</p>
+        <p>Traçando rota para planeta mais próximo...</p>
+    ` 
 
     function medianOfMedians(arr) {
         
