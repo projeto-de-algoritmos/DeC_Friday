@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Friday</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace&family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    
+    <h1>Friday</h1>
+
+    <p>Um viajante espacial está ficando sem combustível,
+        ele pede à Friday (IA da nave) para que encontre
+        o planeta mais próximo para reabastecer.
+    </p>
+    
+    <p>A IA acessa o sistema de navegação para obter a 
+        lista de distâncias entre a nave e os planetas
+        existentes nesse quadrante.
+    </p>
+    
+    <p>Defina as distâncias no quandrante inserindo o menor
+        e o maior intervalo de distância possível nesse
+        quadrante. Os valores intermediários serão gerados
+        aleatoriamente.
+    </p>
+
+
+    <label for="minimo">Range minimo:</label>
+    <input type="number" id="minimo" placeholder="Valor em anos luz">
+    <br>
+    
+    <label for="maximo">Range maximo:</label>
+    <input type="number" id="maximo" placeholder="Valor em anos luz">
+    <br>
+
+    <button onclick="geraArrayAleatorio()">Gerar o Array</button>
+    <div class="alinha">
+        <div id="result"></div>
+    </div>
+    
+    <script src="main.js"></script>
+</body>
+</html>

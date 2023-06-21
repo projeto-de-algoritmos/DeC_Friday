@@ -1,0 +1,54 @@
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+body {
+  text-align: center;
+  min-height: 100vh;
+  background: rgb(0,0,0);
+  background: radial-gradient(circle, rgba(0,0,0,1) 2%, rgba(12,79,126,1) 50%, rgba(11,38,80,1) 50%);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+h1 {
+  font-family: 'Bruno Ace', cursive;
+  font-size: 52px;
+}
+
+input{
+  margin-top: 15px;
+  margin-bottom: 8px;
+}
+
+button {
+  cursor: pointer;
+  padding: 16px 10px;
+  background-color: rgba(11,38,80,1);
+  border: none;
+  border-radius: 3px;
+  margin: 15px;
+  color: white;
+}
+
+button:hover {
+  background-color: black;
+}
+
+.alinha {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#result {
+  display: none;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #FFFFFF;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+  border: solid 1px white;
+  text-align: left;
+  padding: 20px;
+}
